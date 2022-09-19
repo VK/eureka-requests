@@ -5,11 +5,13 @@ from setuptools import setup, find_packages
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+# get the version of the library
+from eureka_requests import __version__ as _version
 
 setup(
-    name='eureka_requests',
+    name='eureka-requests',
     url="https://dev.azure.com/OsramDS/Tools/_git/eureka-requests",
-    version=os.getenv('PYLIB_VERSION', '0.0.0'),
+    version=os.getenv('PYLIB_VERSION', '0.0.0'),    
     packages=find_packages(),
     license="MIT",
     keywords="Use eureka to make a request at different locations",

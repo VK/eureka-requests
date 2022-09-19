@@ -1,3 +1,5 @@
+__version__ = "0.0.1"
+
 import requests as _requests
 
 _eureka_active = False
@@ -26,13 +28,17 @@ def eureka_init(eureka_url):
 
 class RequestsApi:
 
-    def __init__(self, app, eureka_url, token, extra_urls=[], verbose=False):
+    def __init__(self, app, eureka_url, token="", extra_urls=[], verbose=False):
         r"""
         Encapsulate standard python requests 
         """
         self.__app = app
-        self.__auth = "bearer"
-        self.__token = token
+
+        self.__auth = ""
+        if token != "":
+            self.__auth = "bearer"
+            self.__token = token
+
         self.__extra_urls = extra_urls
         self.__verbose = verbose
 
@@ -43,12 +49,6 @@ class RequestsApi:
             return "/".join(url.replace("http://", "").replace("https://", "").split("/")[1:])
         else:
             return url
-
-    def _reorder_first_location(self, urls, loc):
-        return [
-            [u for u in urls if loc.upper() in u.upper()], 
-            [u for u in urls if loc.upper() not in u.upper()], 
-        ]
 
     def _eureka_call(self, service, method, prefer_ip: bool = False, prefer_https: bool = False, **kwargs):
         """
