@@ -10,7 +10,7 @@ from eureka_requests import __version__ as _version
 
 setup(
     name='eureka-requests',
-    url="https://dev.azure.com/OsramDS/Tools/_git/eureka-requests",
+    url="https://github.com/VK/eureka-requests",
     version=os.getenv('PYLIB_VERSION', '0.0.0'),    
     packages=find_packages(),
     license="MIT",
