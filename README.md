@@ -18,7 +18,7 @@ dbApi = eureka_requests.RequestsApi(
     _db_token,
 )
 
-dbApi.post("smile/test/query",
-    json = {"query": "SELECT * FROM V_ZOP_PVDB_VT"}
+dbApi.post("/testdb",
+    json = {"query": "SELECT * FROM USERS"}
 )
 ```
