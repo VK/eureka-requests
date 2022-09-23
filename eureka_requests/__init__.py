@@ -1,6 +1,8 @@
-__version__ = "0.0.4"
+__version__ = "0.0.5"
 
 import requests as _requests
+import nest_asyncio
+nest_asyncio.apply()
 
 _eureka_active = False
 _eureka_available = None

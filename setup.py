@@ -19,6 +19,7 @@ setup(
     long_description_content_type="text/markdown",
     install_requires=[
         'requests',
-        'py-eureka-client'
+        'py-eureka-client',
+        'nest_asyncio'
     ]
 )
